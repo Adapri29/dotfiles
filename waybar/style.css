@@ -9,37 +9,48 @@
     min-height: 0;
 }
 
-window#waybar {
-    background: rgba(0, 0, 0, 0.4);
-}
-
 /* Fondo principal de la barra */
-window#waybar > box {
-    border: none;
-    box-shadow: none;
-    padding: 6px 12px;
+window#waybar{
+    background: transparent;
 }
 
+window#waybar > box {
+	padding: 8px 16px;
+}
+
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > *
+{
+	color: @on_surface;
+	margin-right: 8px;
+	background: rgba(0.0, 0.0, 0.0, 0.7);
+	padding: 6px 6px;
+	border-radius: 10px;
+	min-width: 30px;
+}
 /* --- Módulos Principales --- */
-#custom-launcher, #custom-wallpaper, #cpu, #custom-memory-gpu, #temperature, 
+/*
+#custom-launcher, #mpris, #privacy, #tray, #disk, #custom-wallpaper, #cpu, #custom-memory-gpu, #temperature, 
 #custom-network-speed, #custom-disk, #custom-quick-actions, 
 #clock, #custom-weather, #pulseaudio, #bluetooth, #network.wifi, #custom-power {
     background: @surface_container;
     color: @on_surface;
-    border: 1px solid @primary; /* Borde sutil basado en el color de acento */
+    border: 1px solid @primary;
     border-radius: 9px;
     padding: 2px 8px;
     margin: 0 4px;
 }
+*/
 
 /* Módulos de iconos redondos */
-#custom-launcher, #custom-wallpaper, #custom-power{
+/*#custom-launcher, #custom-wallpaper, #custom-power{
     background: @primary;
     color: @on_primary;
     border-radius: 50%;
     margin: 0 4px;
 }
-
+*/
 
 /* --- Workspaces --- */
 #workspaces button {
@@ -67,13 +78,17 @@ window#waybar > box {
     font-weight: 700;
 }
 
-/* --- Notificaciones --- */
-#custom-notification {
-    background: @surface_container;
-    color: @on_surface;
-    border: 1px solid @primary;
-    padding: 2px 8px;
-    margin: 0 4px;
-    border-radius: 9px;
+/* Con notificaciones sin leer */
+#custom-notification.notification {
+    color: @primary;
 }
 
+/* No molestar activo, sin notificaciones */
+#custom-notification.dnd-none {
+    color: @error;
+}
+
+/* No molestar activo, con notificaciones pendientes */
+#custom-notification.dnd-notification {
+    color: @primary;
+}
