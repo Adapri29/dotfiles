@@ -98,6 +98,7 @@
             "on-scroll-up": "~/.config/waybar/scripts/workspace-scroll.sh up",
             "on-scroll-down": "~/.config/waybar/scripts/workspace-scroll.sh down",
             "all-outputs": false,
+	    "cursor": true,
             "persistent-workspaces": {
                 "HDMI-A-2": [1, 2, 3, 4, 5]	
 	    }
