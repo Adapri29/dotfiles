@@ -1,0 +1,79 @@
+/* Importar los colores generados por Matugen */
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 17px;
+    border: none;
+    font-weight: 500;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Fondo principal de la barra */
+window#waybar > box {
+    border: none;
+    box-shadow: none;
+    padding: 6px 12px;
+}
+
+/* --- Módulos Principales --- */
+#custom-launcher, #custom-wallpaper, #cpu, #custom-memory-gpu, #temperature, 
+#custom-network-speed, #custom-disk, #custom-quick-actions, 
+#clock, #custom-weather, #pulseaudio, #bluetooth, #network.wifi, #custom-power {
+    background: @surface_container;
+    color: @on_surface;
+    border: 1px solid @primary; /* Borde sutil basado en el color de acento */
+    border-radius: 9px;
+    padding: 2px 8px;
+    margin: 0 4px;
+}
+
+/* Módulos de iconos redondos */
+#custom-launcher, #custom-wallpaper, #custom-power{
+    background: @primary;
+    color: @on_primary;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+
+/* --- Workspaces --- */
+#workspaces button {
+    background: @surface_container;
+    color: @on_surface;
+    margin: 0 4px;
+    border-radius: 9px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.empty {
+    opacity: 0.5;
+}
+
+
+
+#workspaces button:hover {
+    background: @surface_container_high;
+    color: @on_surface;
+}
+
+#workspaces button.active {
+    background: @primary;
+    color: @on_primary;
+    font-weight: 700;
+}
+
+/* --- Notificaciones --- */
+#custom-notification {
+    background: @surface_container;
+    color: @on_surface;
+    border: 1px solid @primary;
+    padding: 2px 8px;
+    margin: 0 4px;
+    border-radius: 9px;
+}
+

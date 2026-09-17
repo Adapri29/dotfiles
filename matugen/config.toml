@@ -1,0 +1,39 @@
+# =====================================================================
+# CONFIGURACIÓN GENERAL
+# =====================================================================
+
+[config]
+# Algoritmo de generación de paleta
+# scheme-tonal-spot  → Material You estándar (default)
+# scheme-vibrant     → colores más saturados
+# scheme-fidelity    → fiel al color dominante de la imagen
+# scheme-content     → similar a fidelity pero más suave
+color_scheme = "scheme-tonal-spot"
+
+# Modo de tema
+mode = "dark"  # "dark" | "light"
+
+# Recarga automáticamente las apps listadas tras regenerar
+reload_apps = true
+
+# =====================================================================
+# APPS A RECARGAR
+# =====================================================================
+
+[config.reload_apps_list]
+# Usa pkill -SIGUSR2 waybar — recarga CSS sin reiniciar el proceso
+waybar = true
+
+# =====================================================================
+# TEMPLATES
+# =====================================================================
+# Matugen lee el input, sustituye los placeholders con los colores
+# generados de la imagen, y escribe el archivo output.
+
+[templates.waybar-colors]
+input_path  = "~/.config/matugen/templates/waybar-colors.css"
+output_path = "~/.config/waybar/colors.css"
+
+[templates.hyprland-colors]
+input_path  = "~/.config/matugen/templates/hyprland-colors.conf"
+output_path = "~/.config/hypr/colors.conf"
