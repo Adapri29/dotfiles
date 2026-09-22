@@ -1,0 +1,1 @@
+-- Sin reglas de workspace por ahora.

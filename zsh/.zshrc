@@ -117,6 +117,10 @@ PS1='%B%F{blue}%f%b  %B%F{magenta}%n%f%b $(dir_icon)  %B%F{red}%~%f%b${vcs_in
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# Quitar subrayados de zsh-syntax-highlighting
+ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green   # - .. ~ (mantiene el verde)
+ZSH_HIGHLIGHT_STYLES[path]=none                # /  rutas existentes
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none         # rutas a medio escribir
 
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -169,3 +173,11 @@ export PATH=$PATH:$HOME/go/bin
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 export VCPKG_ROOT="$HOME/vcpkg"
+
+#  ┌─┐┬ ┬┌┐┌┌┬┐┌─┐─┐ ┬  ┬ ┬┬┌─┐┬ ┬┬  ┬┌─┐┬ ┬┌┬┐┬┌┐┌┌─┐
+#  └─┐└┬┘│││ │ ├─┤┌┴┬┘  ├─┤││ ┬├─┤│  │├─┤├─┤ │ │││││ ┬
+#  └─┘ ┴ ┘└┘ ┴ ┴ ┴┴ └─  ┴ ┴┴└─┘┴ ┴┴─┘┴┴ ┴┴ ┴ ┴ ┴┘└┘└─┘
+# Quitar los subrayados (rutas y destinos de autocd)
+ZSH_HIGHLIGHT_STYLES[autodirectory]=fg=green
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none

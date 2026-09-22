@@ -1,25 +1,21 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    branch = "main",
     event = "VeryLazy",
     build = ':TSUpdate',
-    opts = {
-      ensure_installed = {
+    config = function()
+      require("nvim-treesitter").install({
         "lua",
         "luadoc",
         "python",
         "go",
         "c",
         "cpp",
-        "cmake"
-      },
-      highlight = {
-        enable = true,
-      },
-      indent = {
-        enable = true,
-      }
-    }
+        "cmake",
+        "qmljs",
+      })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",

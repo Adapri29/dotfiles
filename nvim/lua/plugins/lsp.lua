@@ -64,6 +64,15 @@ return {
       }
     })
 
-    vim.lsp.enable({ "lua_ls", "clangd", "basedpyright"})
+    vim.lsp.config("qmlls", {
+      on_attach = on_attach,
+      cmd = {
+        "qmlls6",
+        "-E",
+        "--no-cmake-calls"
+      },
+    })
+
+    vim.lsp.enable({ "lua_ls", "clangd", "basedpyright", "qmlls"})
   end,
 }

@@ -92,11 +92,9 @@
             "tooltip-format": " {player}\n {artist}\n {album} {title}\n [{position}/{length}]"
         },
 
-        // NOTA: con Hyprland en modo config Lua, el CLICK sobre un workspace no
-        // funciona: waybar manda "dispatch workspace N" hardcodeado en el binario
-        // y Lua lo rechaza por sintaxis. La rueda (on-scroll-*) es la vía buena.
         "hyprland/workspaces": {
             "format": "{name}",
+            "on-click": "activate",
             "on-scroll-up": "~/.config/waybar/scripts/workspace-scroll.sh up",
             "on-scroll-down": "~/.config/waybar/scripts/workspace-scroll.sh down",
             "all-outputs": false,
@@ -181,7 +179,7 @@
                 "car": "",
                 "default": ["", ""]
             },
-            "on-click": "pwvucontrol",
+            "on-click": "hyprctl dispatch exec pwvucontrol",
             "tooltip-format": "<b><span color='#fab387'><big>󰕾 Audio</big></span></b>\n<span color='#89dceb'>Volume:</span> <span color='#cdd6f4'>{volume}%</span>"
         },
 
