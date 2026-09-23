@@ -68,4 +68,8 @@ hl.env("XDG_DATA_DIRS", os.getenv("HOME") .. "/.local/share/flatpak/exports/shar
 -- a SHM y se queda en "Out of buffers" -> OBS no recibe ni un frame.
 -- Ruta by-path en lugar de /dev/dri/card1 porque la numeracion de card
 -- puede bailar entre arranques; el PCI no.
-hl.env("AQ_DRM_DEVICES", "/dev/dri/by-path/pci-0000:03:00.0-card")
+-- OJO: AQ_DRM_DEVICES separa dispositivos con ":", y la ruta by-path
+-- (pci-0000:03:00.0-card) los contiene -> Aquamarine la trocea, no
+-- encuentra ninguna GPU y Hyprland aborta. Por eso se apunta a un
+-- symlink sin ":" (hypr/dgpu -> /dev/dri/by-path/pci-0000:03:00.0-card).
+hl.env("AQ_DRM_DEVICES", os.getenv("HOME") .. "/.config/hypr/dgpu")
