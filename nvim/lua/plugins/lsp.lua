@@ -71,6 +71,8 @@ return {
         "-E",
         "--no-cmake-calls"
       },
+
+      root_markers = {".qmlls.ini", "shell.qml", ".git"},
     })
 
     vim.lsp.enable({ "lua_ls", "clangd", "basedpyright", "qmlls"})
