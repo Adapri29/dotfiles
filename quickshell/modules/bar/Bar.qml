@@ -57,6 +57,7 @@ Variants {
 
           VolumeTray{}
           NetworkTray{}
+          BluetoothTray{}
         }
 
       }

@@ -6,6 +6,8 @@ PopupWindow{
   required property Item target
   property string text
   property bool shown: false
+  property int padding: 12
+  default property alias content: box.data
 
   anchor.item: target
   anchor.edges: Edges.Bottom
@@ -19,17 +21,24 @@ PopupWindow{
   Rectangle{
     id: bg
     anchors.bottom: parent.bottom
-    implicitWidth: label.implicitWidth + 20
-    implicitHeight: label.implicitHeight + 12
+    implicitWidth: box.implicitWidth + root.padding * 2
+    implicitHeight: box.implicitHeight + root.padding * 2
     radius: 10
-    color: "#1A100F"
+    color: Qt.alpha("#1A100F", 0.9)
 
-    Text{
-      id: label
+    Column{  
+      id: box
       anchors.centerIn: parent
-      text: root.text
-      color: "white"
-      font.pixelSize: 13
+      spacing: 4 
+
+      Text{
+        id: label
+        text: root.text
+        visible: root.text !== ""
+        color: "white"
+        font.family: "Symbols Nerd Font"
+        font.pixelSize: 13
+      }
     }
   }
 }
