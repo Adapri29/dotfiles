@@ -3,29 +3,29 @@ import qs.services
 import qs.components
 import QtQuick.Layouts
 
-Text{
+MaterialIcon{
   id: root
-
-  readonly property color accent: "#F2A594"
-  readonly property color muted: Qt.rgba(1, 1, 1, 0.5)
-  readonly property string iconFont: "Symbols Nerd Font"
 
   function iconFor(device) {
       switch (device.icon) {
-      case "input-gaming":     return "\u{f0297}"
-      case "phone":            return "\u{f011c}"
-      case "audio-headset":
-      case "audio-headphones": return "\u{f02cb}"
-      case "input-mouse":      return "\u{f037d}"
-      case "input-keyboard":   return "\u{f030c}"
-      default:                 return "\u{f00af}"
+      case "input-gaming":     return "sports_esports"
+      case "phone":            return "smartphone"
+      case "audio-headset":    return "headset_mic"
+      case "audio-headphones": return "headphones"
+      case "input-mouse":      return "mouse"
+      case "input-keyboard":   return "keyboard"
+      default:                 return "bluetooth"
       }
   }
 
-  text: !Bluetooth.enabled ? "\u{f00b2}" : "\u{f00af}"
-  font.family: iconFont
-  font.pixelSize: 15
-  color: "#FFFFFF"
+
+  icon: !Bluetooth.enabled ? "bluetooth_disabled"
+      : Bluetooth.connectedDevices.length > 0 ? "bluetooth_connected"
+      : "bluetooth"
+  pixelSize: 20
+  color: Bluetooth.enabled ? Theme.text : Theme.textDim
+
+  Behavior on color {ColorAnimation  {duration: 200}}
 
   HoverHandler{
     id: hover
@@ -48,30 +48,35 @@ Text{
 
       // Cabecera: icono, título y estado
       RowLayout {
-          spacing: 8
+          spacing: 5
 
-          Text {
-              text: Bluetooth.enabled ? "\u{f00af}" : "\u{f00b2}"
-              font { family: root.iconFont; pixelSize: 18 }
-              color: Bluetooth.enabled ? root.accent : root.muted
+          MaterialIcon {
+            icon: !Bluetooth.enabled ? "bluetooth_disabled"
+                : Bluetooth.connectedDevices.length > 0 ? "bluetooth_connected"
+                : "bluetooth"
+            color: Bluetooth.enabled ? Theme.accent : Theme.textDim
+            pixelSize: 17
           }
+
           Text {
               text: "Bluetooth"
               font { pixelSize: 15; bold: true }
-              color: "white"
+              color: Theme.accent
           }
+
           Item { Layout.fillWidth: true }
+          
           Text {
               text: Bluetooth.enabled ? "Encendido" : "Apagado"
               font.pixelSize: 12
-              color: Bluetooth.enabled ? root.accent : root.muted
+              color: Bluetooth.enabled ? Theme.accent : Theme.textDim
           }
       }
 
       Text {
           text: Bluetooth.adapter?.name ?? "-"
           font.pixelSize: 12
-          color: root.muted
+          color: Theme.text
       }
 
       // Separador
@@ -80,13 +85,13 @@ Text{
           Layout.topMargin: 4
           Layout.bottomMargin: 4
           implicitHeight: 1
-          color: Qt.rgba(1, 1, 1, 0.1)
+          color: Theme.border
       }
 
       Text {
-          text: `DISPOSITIVOS (${Bluetooth.connectedDevices.length})`
-          font { pixelSize: 11; bold: true; letterSpacing: 1.2 }
-          color: root.muted
+          text: `Dispositivos (${Bluetooth.connectedDevices.length})`
+          font { pixelSize: 13; bold: true; letterSpacing: 1.2 }
+          color: Theme.accent
       }
 
       // Lista de dispositivos
@@ -98,23 +103,24 @@ Text{
               Layout.fillWidth: true
               spacing: 8
 
-              Text {
-                  text: root.iconFor(modelData)
-                  font { family: root.iconFont; pixelSize: 15 }
-                  color: root.accent
+              MaterialIcon {
+                  icon: root.iconFor(modelData)
+                  pixelSize: 15
+                  color: Theme.accent
               }
+
               Text {
                   Layout.fillWidth: true
                   text: modelData.name
                   elide: Text.ElideRight
                   font.pixelSize: 13
-                  color: "white"
+                  color: Theme.text
               }
               Text {
                   visible: modelData.batteryAvailable
                   text: Math.round(modelData.battery * 100) + "%"
                   font.pixelSize: 12
-                  color: root.muted
+                  color: Theme.textDim
               }
           }
       }
@@ -124,7 +130,7 @@ Text{
           visible: Bluetooth.connectedDevices.length === 0
           text: "Ningún dispositivo conectado"
           font { pixelSize: 12; italic: true }
-          color: root.muted
+          color: Theme.textDim
       }
     }
   }

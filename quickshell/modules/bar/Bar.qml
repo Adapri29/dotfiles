@@ -1,6 +1,8 @@
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
+import qs.components
+import Quickshell.Wayland
 
 Scope{
 	id: root
@@ -10,7 +12,9 @@ Variants {
 	
 		PanelWindow{
 			required property var modelData
-			screen: modelData
+      screen: modelData
+
+      WlrLayershell.namespace: "quickshell-bar"
 
 			anchors{
 				top: true
@@ -19,7 +23,7 @@ Variants {
       }
 
       implicitHeight: 60
-      color: "#1A100F"
+      color: Qt.alpha(Theme.background, 0.9)
 
       //Center
       Rectangle{
@@ -27,7 +31,7 @@ Variants {
         width: center.implicitWidth + 20
         height: center.implicitHeight + 20
         radius: 25
-        color: Qt.rgba(0.5, 0.5, 0.5, 0.2)
+        color: Theme.card
 
         RowLayout{
           id: center
@@ -48,7 +52,7 @@ Variants {
         radius: 25
         width: status.implicitWidth + 20
         height: status.implicitHeight + 20
-        color: Qt.rgba(0.5, 0.5, 0.5, 0.2)
+        color: Theme.card
 
         RowLayout{
           id: status

@@ -1,5 +1,6 @@
 import Quickshell
 import QtQuick
+import qs.components
 
 PopupWindow{
   id: root
@@ -24,7 +25,7 @@ PopupWindow{
     implicitWidth: box.implicitWidth + root.padding * 2
     implicitHeight: box.implicitHeight + root.padding * 2
     radius: 10
-    color: Qt.alpha("#1A100F", 0.9)
+    color: Qt.alpha(Theme.background, 0.9)
 
     Column{  
       id: box
@@ -35,7 +36,7 @@ PopupWindow{
         id: label
         text: root.text
         visible: root.text !== ""
-        color: "white"
+        color: Theme.text
         font.family: "Symbols Nerd Font"
         font.pixelSize: 13
       }

@@ -17,6 +17,7 @@ hl.config({
 
     decoration = {
         rounding = 8,
+        blur = {enabled= true, size=3, passes=1},
     },
 
     -- Envia la ventana en pantalla completa directamente al escaner de video,

@@ -1,5 +1,6 @@
 import QtQuick
 import qs.services
+import qs.components
 
 Row{
   spacing: 15
@@ -11,34 +12,32 @@ Row{
       id: dot
       required property int index
 
-      width: Workspaces.isFocused(index+1) ? 30 : 15
+      readonly property bool focused: Workspaces.isFocused(index + 1)
+      readonly property bool occupied: Workspaces.isOccupied(index + 1)
+
+      width: focused ? 30 : 15
       height: 15
       radius: 20
-      opacity: Workspaces.isOccupied(index + 1) || hover.hovered ? 1.0 : 0.4
-      color: Workspaces.isOccupied(index+1) || hover.hovered ? "#F2A594" : Qt.rgba(0.5, 0.5, 0.5, 1)
+      color: focused ? Theme.accent 
+           : occupied ? (hover.hovered ? Theme.text : Theme.textDim)
+           : (hover.hovered ? Theme.textDim : Theme.border)
 
-      Behavior on width{
-        NumberAnimation{duration: 200; easing.type: Easing.OutCubic}
-      }
+      Behavior on width{NumberAnimation{duration: 200; easing.type: Easing.OutCubic}}
 
-      Behavior on color{
-        ColorAnimation {duration: 200}
-      }
+      Behavior on color{ColorAnimation {duration: 200}}
 
-      Behavior on opacity{ NumberAnimation {duration: 200 }}
+      HoverHandler{
+        id: hover
+        cursorShape: Qt.PointingHandCursor
+        margin: 5
+      } 
 
-          HoverHandler{
-            id: hover
-            cursorShape: Qt.PointingHandCursor
-            margin: 5
-          } 
-
-          TapHandler{
-            margin: 5
-            onTapped: Workspaces.goTo(dot.index + 1)
-          } 
-      }
+      TapHandler{
+        margin: 5
+        onTapped: Workspaces.goTo(dot.index + 1)
+      } 
     }
+  }
 
     
   WheelHandler{

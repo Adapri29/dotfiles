@@ -53,7 +53,7 @@ Scope{
 
           MaterialIcon{
             text: Audio.muted ? "volume_off" : Audio.volume > 50 ? "volume_up" : "volume_down"
-            size: 30
+            pixelSize: 30
           }       
 
           Rectangle{
@@ -77,8 +77,6 @@ Scope{
             color:"white"
             font.pixelSize: 15
           }
-
-
         }
       }
     }

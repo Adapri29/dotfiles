@@ -7,6 +7,13 @@ hl.window_rule({
     center = true,
 })
 
+hl.layer_rule({
+    name = "quickshell-bar-blur",
+    match = { namespace = "quickshell-bar" },
+    blur = true,
+    ignore_alpha = 0.1,
+})
+
 -- ---------------------------------------------------------------------
 -- Cities: Skylines II  (Proton / XWayland)
 --
@@ -29,3 +36,5 @@ hl.window_rule({
     rounding = 0,
     -- immediate = true,
 })
+
+

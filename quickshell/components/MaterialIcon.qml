@@ -1,13 +1,14 @@
 import QtQuick
+import qs.components
 
 Text{
   property string icon
   property real fill: 0
-  property int size: 24
-
+  property int pixelSize: 24
+  
   text: icon
-  color: "white"
+  color: Theme.text
   font.family: "Material Symbols Rounded"
-  font.pixelSize: size
+  font.pixelSize: pixelSize
   font.variableAxes: {"FILL": fill}
 }

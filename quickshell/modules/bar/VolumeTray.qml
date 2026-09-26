@@ -2,18 +2,17 @@ import QtQuick
 import qs.services
 import qs.components
 
-Text{
+MaterialIcon{
   id: root
   property real volume: Audio.volume
   property bool muted: Audio.muted
 
-  text: Audio.muted || Audio.volume === 0 ? "\u{f075f}" 
-      : Audio.volume < 0.33 ? "\u{f057f}"
-      : Audio.volume < 0.66 ? "\u{f0580}"
-      : "\u{f057e}"
-  font.family: "Symbols Nerd Font"
-  font.pixelSize: 18
-  color: "#FFFFFF"
+  icon: Audio.muted || Audio.volume === 0 ? "volume_muted" 
+      : Audio.volume < 0.5 ? "volume_down"
+      : "volume_up"
+
+  pixelSize: 20
+  color: Theme.text
 
   Behavior on color {ColorAnimation {duration: 200}}
 
