@@ -11,7 +11,7 @@ MaterialIcon{
         : Network.strength < 0.33 ? "wifi_1_bar"
         : Network.strength < 0.66 ? "wifi_2_bar"
         : "wifi"
-  pixelSize: 18
+  pixelSize: 19
   color: Network.wifiEnabled ? Theme.text : Theme.textDim
 
   HoverHandler{

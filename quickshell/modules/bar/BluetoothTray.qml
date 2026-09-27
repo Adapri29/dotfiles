@@ -22,7 +22,7 @@ MaterialIcon{
   icon: !Bluetooth.enabled ? "bluetooth_disabled"
       : Bluetooth.connectedDevices.length > 0 ? "bluetooth_connected"
       : "bluetooth"
-  pixelSize: 20
+  pixelSize: 21
   color: Bluetooth.enabled ? Theme.text : Theme.textDim
 
   Behavior on color {ColorAnimation  {duration: 200}}

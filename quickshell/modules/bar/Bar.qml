@@ -59,6 +59,7 @@ Variants {
           anchors.centerIn: parent
           spacing: 15
 
+          NotificationsTray{}
           VolumeTray{}
           NetworkTray{}
           BluetoothTray{}

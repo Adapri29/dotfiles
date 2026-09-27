@@ -52,7 +52,7 @@ Scope{
           }
 
           MaterialIcon{
-            text: Audio.muted ? "volume_off" : Audio.volume > 50 ? "volume_up" : "volume_down"
+            text: Audio.muted ? "volume_off" : Audio.volume > 0.5 ? "volume_up" : "volume_down"
             pixelSize: 30
           }       
 

@@ -11,7 +11,7 @@ MaterialIcon{
       : Audio.volume < 0.5 ? "volume_down"
       : "volume_up"
 
-  pixelSize: 20
+  pixelSize: 22
   color: Theme.text
 
   Behavior on color {ColorAnimation {duration: 200}}
