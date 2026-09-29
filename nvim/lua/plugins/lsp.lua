@@ -75,6 +75,27 @@ return {
       root_markers = {".qmlls.ini", "shell.qml", ".git"},
     })
 
-    vim.lsp.enable({ "lua_ls", "clangd", "basedpyright", "qmlls"})
+    vim.lsp.config("rust_analyzer", {
+      settings = {
+        ["rust-analyzer"] = {
+          imports = {
+            granularity = {
+              group = "module",
+            },
+            prefix = "self",
+          },
+          cargo = {
+            buildScripts = {
+              enable = true,
+            },
+          },
+          procMacro = {
+            enable = true,
+          },
+        },
+      },
+    })
+
+    vim.lsp.enable({ "lua_ls", "clangd", "basedpyright", "qmlls", "rust_analyzer"})
   end,
 }

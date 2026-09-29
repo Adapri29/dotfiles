@@ -14,6 +14,7 @@ return {
         "cpp",
         "cmake",
         "qmljs",
+        "rust"
       })
     end,
   },
