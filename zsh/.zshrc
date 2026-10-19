@@ -2,7 +2,7 @@
 #       HISTORY       #
 #---------------------#
 HISTFILE=~/.config/zsh/zhistory
-HITSIZE=5000
+HISTSIZE=5000
 SAVEHIST=5000
 setopt share_history
 setopt hist_ignore_dups
@@ -11,14 +11,15 @@ setopt hist_ignore_dups
 #---------------------#
 #    AUTO COMPLETE    #
 #---------------------#
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#808080'
 autoload -Uz compinit && compinit
 zstyle ':completion:*' menu select
 
 #---------------------#
 #       PLUGINS       #
 #---------------------#
-source /usr/share/zsh/plugins/zsh-autosuggestions/autosugestions.zsh
-source /usr/share/zsh/plugins/zsh-syntaxis-highlighting/zsh-syntaxis-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #---------------------#
 #    SHELL PROMPT     #
