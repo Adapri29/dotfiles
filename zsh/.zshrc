@@ -24,4 +24,12 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 #---------------------#
 #    SHELL PROMPT     #
 #---------------------#
+export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
 eval "$(starship init zsh)"
+
+#---------------------#
+#	 ALIAS        #
+#---------------------#
+alias cat="bat --theme=base16"
+alias ls='eza --icons=always --color=always -a'
+alias ll='eza --icons=always --color=always -la' 

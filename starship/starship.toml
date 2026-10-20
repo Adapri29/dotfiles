@@ -1,0 +1,37 @@
+"$schema" = 'https:://starship.rs/config-schema.json'
+
+format = '''
+$os$username${custom.home}${custom.directory}$directory$character
+'''
+
+[username]
+show_always = true
+format = "[$user]($style) "
+style_user = "bold purple"
+
+[directory]
+truncation_length = 0
+truncate_to_repo = false
+style = "bold red"
+
+[character]
+success_symbol = "[\uf105\uf105](bold green)"
+error_symbol = "[\uf105\uf105](bold red)"
+
+[os]
+disabled = false
+format = "[$symbol]($style)  "
+style = "bold blue"
+
+[os.symbols]
+Arch = "\uf303"
+
+[custom.home]
+when = 'test "$PWD" = "$HOME"'
+format = "[\uf015](bold blue)  "
+shell = ["sh"]
+
+[custom.directory]
+when = 'test "$PWD" != "$HOME"'
+format = "[\uf07b](bold blue)  "
+shell = ["sh"]
