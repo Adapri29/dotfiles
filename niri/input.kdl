@@ -1,0 +1,17 @@
+input{
+  keyboard{
+    xkb{
+      layout "es"
+    }
+    numlock      //bloque numérico activado al arrancar
+  }
+
+  touchpad{
+    tap         // tocar = clic
+    natural-scroll  // desplazamiento como en el móvil
+  }
+
+  mouse{
+
+  }
+}

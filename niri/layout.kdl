@@ -1,0 +1,49 @@
+// Distribución de las ventanas
+
+layout{
+  gaps 16
+
+  // When to center a column when changing focus, options are:
+  // - "never", default behavior, focusing an off-screen column will keep at the left
+  //   or right edge of the screen.
+  // - "always", the focused column will always be centered.
+  // - "on-overflow", focusing a column will center it if it doesn't fit
+  //   together with the previously focused column.
+  center-focused-column "never"
+
+  preset-column-widths{
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+  }
+
+  default-column-width {proportion 0.5;}
+
+  // Marco de la ventana activa
+  focus-ring{
+    width 2
+    active-color "#7fc8ff"
+    inactive-color "#505050"
+  }
+
+  // Borde: como el marco, pero ocupa espacio y se ve en todas las ventanas
+  border{
+    off
+  }
+
+  shadow{
+    //on
+    softness 30
+
+    // Spread expands the shadow.
+    spread 5
+
+    // Offset moves the shadow relative to the window.
+    offset x=0 y=5
+
+    // You can also change the shadow color and opacity.
+    color "#0007"
+
+  }
+}
+
