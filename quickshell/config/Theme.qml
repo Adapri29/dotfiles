@@ -1,5 +1,5 @@
 pragma Singleton
-import Quichshell
+import Quickshell
 import QtQuick
 
 Singleton {
@@ -10,19 +10,19 @@ Singleton {
   readonly property color surfaceContainerHighest: "#32353A"  // botón pulsado, pista vacía de deslizadores
 
   // ─── Texto e iconos sobre fondos surface ──────────────────
-  readonly property color onSurface: "#E1E2E8"                // texto e iconos principales
+  readonly property color textOnSurface: "#E1E2E8"                // texto e iconos principales
   readonly property color onSurfaceVariant: "#C3C7CF"         // secundario: workspaces vacíos, detalles
 
   // ─── Acento ───────────────────────────────────────────────
   readonly property color primary: "#A0CAFD"                  // workspace activo, relleno de deslizadores
-  readonly property color onPrimary: "#003258"                // texto encima de primary
+  readonly property color textOnPrimary: "#003258"                // texto encima de primary
   readonly property color primaryContainer: "#184975"         // destacado suave: workspaces ocupados, toggles activos
-  readonly property color onPrimaryContainer: "#D1E4FF"       // texto encima de primaryContainer
+  readonly property color textOnPrimaryContainer: "#D1E4FF"       // texto encima de primaryContainer
 
   // ─── Estados ──────────────────────────────────────────────
   readonly property color tertiary: "#D6BEE5"                 // aviso intermedio: batería < 30 %, cargando
   readonly property color error: "#FFB4AB"                    // batería baja, sin red
-  readonly property color onError: "#690005"                  // texto encima de error
+  //readonly property color onError: "#690005"                  // texto encima de error
 
   // ─── Líneas y superposiciones ─────────────────────────────
   readonly property color outlineVariant: "#42474E"           // separadores, bordes de popups
