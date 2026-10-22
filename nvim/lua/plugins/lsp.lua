@@ -12,6 +12,7 @@ local servers = {
   lua_ls = "lua-language-server",
   bashls = "bash-language-server",
   jsonls = "vscode-json-language-server",
+  qmlls = "/usr/lib/qt6/bin/qmlls",
 }
 
 vim.lsp.config("lua_ls", {
@@ -22,8 +23,11 @@ vim.lsp.config("lua_ls", {
     },
   },
 })
- 
 
+vim.lsp.config("qmlls", {
+  cmd = {"/usr/lib/qt6/bin/qmlls"}
+})
+ 
 for name, bin in pairs(servers) do
   if vim.fn.executable(bin) == 1 then
     vim.lsp.enable(name)

@@ -21,7 +21,10 @@ require("nvim-treesitter").install({
   "bash",
   "json",
   "python",
+  "qmljs",
 })
+
+vim.treesitter.language.register("qmljs", "qml")
 
 -- Activa el resaltado en cualquier archivo cuyo lenguaje tenga parser
 vim.api.nvim_create_autocmd("FileType", {
@@ -29,3 +32,5 @@ vim.api.nvim_create_autocmd("FileType", {
     pcall(vim.treesitter.start)
   end,
 })
+
+
