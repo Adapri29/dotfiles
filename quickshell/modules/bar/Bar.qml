@@ -39,6 +39,8 @@ Variants{
       }
 
       spacing: Theme.spacing
+      
+      AudioIndicator{}
     }
   }
 }
