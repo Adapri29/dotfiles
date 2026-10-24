@@ -42,6 +42,7 @@ Variants{
       
       AudioIndicator{}
       NetworkIndicator{}
+      BatteryIndicator{}
     }
   }
 }
