@@ -39,7 +39,8 @@ Variants{
       }
 
       spacing: Theme.spacing
-      
+
+      MicrophoneIndicator{}
       AudioIndicator{}
       NetworkIndicator{}
       BatteryIndicator{}

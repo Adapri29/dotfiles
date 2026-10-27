@@ -16,15 +16,30 @@ Singleton{
   property real volume: sink?.audio?.volume ?? 0
   property bool muted: sink?.audio?.muted ?? false
 
+  property real micVolume: source?.audio?.volume ?? 0
+  property bool micMuted: source?.audio?.muted ?? false
+
   function toggleMute(){
     if(sink?.audio){
       sink.audio.muted = !sink.audio.muted;
     }
   }
 
+  function toggleMicMute(){
+    if(source?.audio){
+      source.audio.muted = !source.audio.muted;
+    }
+  }
+
   function setVolume(value){
     if(sink?.audio){
       sink.audio.volume = Math.max(0, Math.min(1, value));
+    }
+  }
+
+  function setMicVolume(value){
+    if(source?.audio){
+      source.audio.volume = Math.max(0, Math.min(1, value));
     }
   }
 }

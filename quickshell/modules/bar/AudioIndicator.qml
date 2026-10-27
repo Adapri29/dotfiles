@@ -1,7 +1,9 @@
 import QtQuick
 import qs.config
 import qs.services
-Row{
+import qs.components
+
+CircularIndicator{
   id: root
 
   property int volume: Math.round(Audio.volume * 100)
@@ -13,22 +15,14 @@ Row{
 
   }
 
-  spacing: Theme.spacing / 2 
-
+  progress: volume / 100
+  
   Text{
     text: root.icon
     font.family: Theme.iconFont
     font.pixelSize: Theme.iconSize
     color: Theme.textOnSurface
-    anchors.verticalCenter: parent.verticalCenter
-  }
-
-  Text{
-    text: root.volume + "%"
-    font.family: Theme.font
-    font.pixelSize: Theme.fontSize
-    color: Theme.textOnSurface
-    anchors.verticalCenter: parent.verticalCenter
+    anchors.centerIn: parent
   }
 
   TapHandler{
