@@ -1,6 +1,7 @@
 import QtQuick
 import qs.config
 import qs.services
+import Quickshell
 import qs.components
 
 CircularIndicator{
@@ -23,7 +24,13 @@ CircularIndicator{
   }
 
   TapHandler{
+    acceptedButtons: Qt.LeftButton
     onTapped: Audio.toggleMicMute()
+  }
+
+  TapHandler{
+    acceptedButtons: Qt.RightButton
+    onTapped: Quickshell.execDetached(["sh", "-c", "pkill -x pwvucontrol || pwvucontrol"])
   }
 
   HoverHandler{
