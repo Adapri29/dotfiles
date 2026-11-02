@@ -23,7 +23,7 @@ Singleton{
     if(sink?.audio){
       sink.audio.muted = !sink.audio.muted;
     }
-  }
+  }    
 
   function toggleMicMute(){
     if(source?.audio){

@@ -42,6 +42,7 @@ Variants{
 
       MicrophoneIndicator{}
       AudioIndicator{}
+      BluetoothIndicator{}
       NetworkIndicator{}
       BatteryIndicator{}
     }

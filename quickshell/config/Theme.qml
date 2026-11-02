@@ -32,7 +32,7 @@ Singleton {
   // ─── Fuentes ──────────────────────────────────────────────
   readonly property string font: "Inter"
   readonly property string iconFont: "Material Symbols Rounded"
-  readonly property int fontSize: 12
+  readonly property int fontSize: 16
   readonly property int iconSize: 16
 
   // ─── Espaciado y forma (múltiplos de 4) ───────────────────

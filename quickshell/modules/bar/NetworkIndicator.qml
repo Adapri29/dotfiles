@@ -16,11 +16,11 @@ Circle{
     anchors.centerIn: parent
 
     readonly property var wifiIcons: [
-      "signal_wifi_0_bar",
+      "signal_wifi_0_ bar",
       "network_wifi_1_bar",
       "network_wifi_2_bar",
       "network_wifi_3_bar",
-      "signal_wifi_4_bar"
+      "signal_wifi_4_bar" 
     ]
 
     readonly property string icon: {
