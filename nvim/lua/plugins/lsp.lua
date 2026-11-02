@@ -5,10 +5,10 @@ vim.pack.add({
 
 -- --- Servidores ---------------------------------------
 local servers = {
-  rust_analyzer = "rust_analyzer",
+  rust_analyzer = "rust-analyzer",
   taplo = "taplo", -- TOML
   glsl_analyzer = "glsl_analyzer",
-  pyright = "pyright_langserver",
+  pyright = "pyright-langserver",
   lua_ls = "lua-language-server",
   bashls = "bash-language-server",
   jsonls = "vscode-json-language-server",
@@ -31,6 +31,8 @@ vim.lsp.config("qmlls", {
 for name, bin in pairs(servers) do
   if vim.fn.executable(bin) == 1 then
     vim.lsp.enable(name)
+  else
+    vim.notify(("LSP %s: no se encuentra '%s'"):format(name, bin), vim.log.levels.WARN)
   end
 end
 
